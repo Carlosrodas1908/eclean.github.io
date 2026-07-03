@@ -19,7 +19,7 @@ body{
 /*=========================
         NAVBAR
 ==========================*/
-/* Navbar general */
+
 .navbar{
     width:100%;
     position:fixed;
@@ -38,70 +38,6 @@ body{
     backdrop-filter:blur(15px);
     box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-/* Menú escritorio */
-.menu {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.menu li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Botón hamburguesa oculto en escritorio */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu {
-    display: none; /* oculto por defecto */
-    flex-direction: column;
-    background: #2ecc71;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
-
-  .menu-toggle {
-    display: block; /* aparece el botón hamburguesa */
-  }
-
-  .menu.active {
-    display: flex; /* se muestra cuando se activa */
-    animation: slideDown 0.3s ease;
-  }
-}
-
-/* Animación suave */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .slogan{
     font-size:18px;
     font-weight:400;
@@ -157,6 +93,13 @@ body{
 .hero-image img{
     border-radius:250px;
     box-shadow:0 40px 25px rgba(0,0,0,.2);
+}
+.navbar ul{
+
+    list-style:none;
+    display:flex;
+    gap:30px;
+
 }
 
 .navbar a{
@@ -612,106 +555,84 @@ footer h3{
 /*=========================
         RESPONSIVE
 ==========================*/
-@media (max-width: 900px){
 
-    .navbar{
-        position:relative;
-        padding:15px 20px;
-    }
+@media(max-width:900px){
 
-    .menu-toggle{
-        display:block;
-        font-size:28px;
-    }
+.hero{
 
-    .menu{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        width:100%;
-        background:#27ae60;
-        flex-direction:column;
-        text-align:center;
-        padding:15px 0;
-        box-shadow:0 8px 20px rgba(0,0,0,.15);
-    }
+    flex-direction:column-reverse;
 
-    .menu.active{
-        display:flex;
-    }
+    text-align:center;
 
-    .menu li{
-        margin:12px 0;
-    }
-
-    .menu li a{
-        color:#fff;
-        display:block;
-        font-size:18px;
-    }
-
-    .hero{
-        flex-direction:column-reverse;
-        text-align:center;
-        padding:60px 20px;
-    }
-
-    .hero-text h1{
-        font-size:38px;
-    }
-
-    .hero-text p{
-        font-size:18px;
-    }
-
-    .hero-image img{
-        max-width:320px;
-    }
-
-    .logo img{
-        height:65px;
-    }
-
-    .logo{
-        font-size:22px;
-    }
 }
 
-@media (max-width:600px){
+.hero-text h1{
 
-    .hero{
-        padding-top:40px;
-    }
+    font-size:42px;
 
-    .hero-text h1{
-        font-size:30px;
-    }
+}
 
-    .hero-text p{
-        font-size:16px;
-    }
+.hero-text p{
 
-    .btn{
-        width:100%;
-    }
+    font-size:18px;
 
-    .section{
-        padding:60px 20px;
-    }
+}
 
-    .section h2{
-        font-size:28px;
-    }
+.navbar{
 
-    .cards,
-    .steps,
-    .grid,
-    .gallery{
-        grid-template-columns:1fr;
-    }
+    flex-direction:column;
 
-    .hero-image img{
-        max-width:250px;
-    }
+    gap:15px;
+
+}
+
+.navbar ul{
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.section h2{
+
+    font-size:32px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-text h1{
+
+    font-size:34px;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.cards,
+.grid,
+.gallery,
+.steps{
+
+    grid-template-columns:1fr;
+
+}
+
 }
