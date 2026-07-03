@@ -20,23 +20,69 @@ body{
         NAVBAR
 ==========================*/
 
-.navbar{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #27ae60;
+  padding: 10px 20px;
+  color: #fff;
+}
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
 
-    padding:10px 8%;
-    height:120px;
+.navbar .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
 
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(15px);
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+/* Menú en escritorio */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Botón hamburguesa oculto en escritorio */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* oculto por defecto */
+    flex-direction: column;
+    background: #2ecc71;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block; /* aparece el botón hamburguesa */
+  }
+
+  .menu.active {
+    display: flex; /* se muestra cuando se activa */
+  }
 }
 .slogan{
     font-size:18px;
