@@ -20,21 +20,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <!-- NAVBAR -->
 <header>
 
-<nav class="navbar">
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logon.jpg" alt="Logo E-Clean">
+      <span>E-Clean</span>
+    </div>
 
-<div class="logo">
-     <img src="logon.jpg">
-    <span>E-Clean</span>
-</div>
+    <!-- Botón hamburguesa -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+      ☰
+    </button>
 
-<ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#producto">Producto</a></li>
-    <li><a href="#beneficios">Beneficios</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-</ul>
-
-</nav>
+    <!-- Menú -->
+    <ul id="menu" class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#producto">Producto</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
