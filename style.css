@@ -19,7 +19,7 @@ body{
 /*=========================
         NAVBAR
 ==========================*/
-
+/* Navbar general */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -29,17 +29,17 @@ body{
   color: #fff;
 }
 
-.navbar .logo {
+.logo {
   display: flex;
   align-items: center;
 }
 
-.navbar .logo img {
+.logo img {
   height: 40px;
   margin-right: 10px;
 }
 
-/* Menú en escritorio */
+/* Menú escritorio */
 .menu {
   display: flex;
   list-style: none;
@@ -82,8 +82,16 @@ body{
 
   .menu.active {
     display: flex; /* se muestra cuando se activa */
+    animation: slideDown 0.3s ease;
   }
 }
+
+/* Animación suave */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .slogan{
     font-size:18px;
     font-weight:400;
