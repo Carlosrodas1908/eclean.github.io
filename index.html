@@ -3,289 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Clean | Basurero Inteligente</title>
+<title>Navbar Responsive</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+body{
+    background:#f5f5f5;
+}
+
+/*=========================
+        NAVBAR
+=========================*/
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    z-index:999;
+}
+
+/* Logo */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    font-size:28px;
+    font-weight:bold;
+    color:#27ae60;
+}
+
+.logo img{
+    height:70px;
+    width:auto;
+}
+
+/* Menú escritorio */
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#27ae60;
+}
+
+/* Botón hamburguesa */
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:28px;
+    color:#333;
+}
+
+/*=========================
+      RESPONSIVE
+=========================*/
+
+@media(max-width:768px){
+
+    .navbar{
+        height:80px;
+        padding:0 20px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .logo img{
+        height:60px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .menu{
+        position:absolute;
+        top:80px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+        flex-direction:column;
+
+        background:#fff;
+
+        box-shadow:0 8px 20px rgba(0,0,0,.1);
+    }
+
+    .menu.active{
+        display:flex;
+        animation:abrir .3s ease;
+    }
+
+    .menu li{
+        border-bottom:1px solid #eee;
+    }
+
+    .menu li:last-child{
+        border-bottom:none;
+    }
+
+    .menu a{
+        display:block;
+        padding:18px 20px;
+    }
+
+    .menu a:hover{
+        background:#27ae60;
+        color:#fff;
+    }
+
+}
+
+@keyframes abrir{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+main{
+    padding-top:120px;
+    text-align:center;
+}
+</style>
 
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-<header>
 
 <nav class="navbar">
 
-<div class="logo">
-    <span>E-Clean</span>
-</div>
+    <div class="logo">
+        <img src="logon.jpg" alt="Logo">
+        <span>E-Clean</span>
+    </div>
 
-<ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#producto">Producto</a></li>
-    <li><a href="#beneficios">Beneficios</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-</ul>
+    <button class="menu-toggle" id="btnMenu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="menu" id="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#producto">Producto</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
 
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
+<main>
 
-<div class="hero-text">
+<h1>Contenido de la página</h1>
+<p>El menú permanece fijo y es responsive.</p>
 
-    <h1>El futuro de los basureros inteligentes</h1>
+</main>
 
-    <p class="slogan">
-        Tecnología inteligente para un entorno más limpio. <br>
-        Innovando la gestión de residuos. <br>
-        El futuro de la limpieza comienza hoy. <br>
-        Menos contacto. Más higiene. Más inteligencia.
-    </p>
+<script>
 
-    <p>
-        Tecnología, higiene y sostenibilidad en un solo producto.
-        Ideal para hogares, empresas, hospitales y espacios públicos.
-    </p>
+const boton = document.getElementById("btnMenu");
+const menu = document.getElementById("menu");
 
-    <a href="#producto" class="btn">Conocer más</a>
+boton.addEventListener("click", ()=>{
 
-</div>
+    menu.classList.toggle("active");
 
-<div class="hero-image">
+});
 
-    <img src="./clean.jpeg">
+// Cierra el menú al seleccionar una opción en móvil
+document.querySelectorAll(".menu a").forEach(item=>{
 
-</div>
+    item.addEventListener("click",()=>{
 
-</section>
+        menu.classList.remove("active");
 
-</header>
+    });
 
-<!-- PRODUCTO -->
-<section id="producto" class="section">
+});
 
-<h2>Nuestro Producto</h2>
-
-<p>
-El basurero inteligente que transforma la gestión de residuos.
-E-Clean es una solución innovadora que combina tecnología, diseño y sostenibilidad para hacer que el manejo de los residuos sea más higiénico, eficiente y seguro.
-Con un sistema inteligente de apertura automática y un diseño moderno, E-Clean está pensado para hogares, empresas, instituciones educativas, hospitales y espacios públicos que buscan incorporar tecnología al cuidado del ambiente.
-
-</p>
-
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-hand-paper"></i>
-<h3>Producto</h3>
-<p>Conocer el producto..</p>
-</div>
-
-<div class="card">
-<i class="fas fa-bolt"></i>
-<h3>Cotización</h3>
-<p>Solicitar una cotización..</p>
-</div>
-
-<div class="card">
-<i class="fas fa-leaf"></i>
-<h3>Comprar</h3>
-<p>Realizar una compra..</p>
-</div>
-
-</div>
-
-</section>
-<!-- MISIÓN -->
-<section class="section mision">
-
-<h2>Nuestra misión</h2>
-
-<p>
-Desarrollar soluciones inteligentes que mejoren la calidad de vida de las personas
-mediante la innovación tecnológica y el compromiso con el cuidado del medio ambiente.
-</p>
-
-</section>
-
-<!-- POR QUÉ ELEGIRNOS -->
-<section class="section por-que">
-
-<h2>¿Por qué elegir E-Clean?</h2>
-
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-microchip"></i>
-<h3>Tecnología inteligente</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-shield-alt"></i>
-<h3>Mayor higiene</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-hand-pointer"></i>
-<h3>Fácil de utilizar</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-star"></i>
-<h3>Diseño moderno</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-ban"></i>
-<h3>Menos contacto</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-recycle"></i>
-<h3>Eco amigable</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-layer-group"></i>
-<h3>Uso múltiple</h3>
-</div>
-
-</div>
-
-</section>
-<!-- COMO FUNCIONA -->
-<section class="section">
-
-<h2>¿Cómo funciona?</h2>
-
-<div class="steps">
-
-<div class="step">
-<span>1</span>
-<p>Acercás la mano al sensor</p>
-</div>
-
-<div class="step">
-<span>2</span>
-<p>El sensor detecta el movimiento</p>
-</div>
-
-<div class="step">
-<span>3</span>
-<p>La tapa se abre automáticamente</p>
-</div>
-
-<div class="step">
-<span>4</span>
-<p>Se cierra sola después</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- BENEFICIOS -->
-<section id="beneficios" class="section">
-
-<h2>Aplicaciones</h2>
-
-<div class="grid">
-
-<div>🏠 Hogares</div>
-<div>🏢 Oficinas</div>
-<div>🏥 Hospitales</div>
-<div>🏫 Escuelas</div>
-<div>🏨 Hoteles</div>
-<div>🍽 Restaurantes</div>
-<div>🛒 Supermercados</div>
-<div>🏛 Instituciones</div>
-
-</div>
-
-</section>
-<!-- INNOVACIÓN SOSTENIBLE -->
-<section class="section sostenible">
-
-<h2>Innovación sostenible</h2>
-
-<p>
-En E-Clean creemos que la tecnología puede convertirse en una aliada del medio ambiente.
-Nuestro objetivo es ofrecer soluciones que promuevan ciudades más limpias, espacios más saludables
-y una gestión responsable de los residuos.
-</p>
-
-</section>
-
-<!-- GALERIA -->
-<section class="section">
-
-<h2>Galería del producto</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80">
-
-</div>
-
-</section>
-
-<!-- CONTACTO -->
- <section class="section contacto-intro">
-
-<h2>Contacto</h2>
-
-<p>
-¿Querés conocer más sobre E-Clean? <br>
-Completa el formulario o escribinos por WhatsApp. <br>
-Nuestro equipo estará listo para asesorarte.
-</p>
-
-</section>
-<section id="contacto" class="section contacto">
-
-<h2>Contáctanos</h2>
-
-<form>
-
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Correo" required>
-<textarea placeholder="Escriba su mensaje"></textarea>
-
-<button type="submit">Enviar Consulta</button>
-
-</form>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-
-<h3>E-Clean</h3>
-
-<p>Innovación tecnológica para un entorno más limpio.</p>
-
-<div class="social">
-<i class="fab fa-facebook"></i>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-whatsapp"></i>
-<i class="fab fa-linkedin"></i>
-</div>
-
-<p>© 2026 E-Clean. Todos los derechos reservados.</p>
-
-</footer>
-
-<script src="script.js"></script>
+</script>
 
 </body>
 </html>
